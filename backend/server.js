@@ -1,6 +1,8 @@
 const express = require('express');
 const pool = require('./config/db'); // Asegúrate de que la ruta sea correcta
 const bicicletasController = require('./controllers/bicicletasController');
+const authController = require('./controllers/authController');
+const authenticateToken = require('./middleware/authenticateToken');
 const http = require('http');
 const socketIo = require('socket.io');
 
@@ -22,6 +24,15 @@ app.get('/', async (req, res) => {
 app.get('/bicicletas', bicicletasController.getBicicletas);
 app.post('/bicicletas', bicicletasController.createBicicleta);
 
+// Rutas de autenticación
+app.post('/register', authController.register);
+app.post('/login', authController.login);
+
+// Ruta protegida
+app.get('/ruta-protegida', authenticateToken, (req, res) => {
+    res.send('Esta es una ruta protegida');
+});
+
 const server = http.createServer(app);
 const io = socketIo(server);
 
@@ -36,4 +47,3 @@ const PORT = 3003;
 server.listen(PORT, () => {
     console.log(`Servidor backend corriendo en http://localhost:${PORT}`);
 });
-

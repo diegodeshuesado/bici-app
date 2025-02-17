@@ -1,12 +1,18 @@
 const { Pool } = require('pg');
-require('dotenv').config(); // Cargar variables de entorno
+require('dotenv').config();
 
 const pool = new Pool({
-  user: process.env.DB_USER,       // Usuario desde .env
-  host: process.env.DB_HOST,      // Host desde .env
-  database: process.env.DB_NAME,  // Nombre de la base de datos desde .env
-  password: process.env.DB_PASSWORD, // Contraseña desde .env
-  port: process.env.DB_PORT,      // Puerto desde .env
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
+});
+
+// Manejo de errores en la conexión
+pool.on('error', (err) => {
+  console.error('Error inesperado en el pool de conexiones:', err);
+  process.exit(-1); // Detener la aplicación en caso de error crítico
 });
 
 module.exports = pool;

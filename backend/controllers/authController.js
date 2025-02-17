@@ -1,8 +1,7 @@
-const pool = require('../config/db');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+const pool = require('../config/db');
 
-// Registrar un nuevo usuario
 const register = async (req, res) => {
     const { username, email, password } = req.body;
     try {
@@ -18,7 +17,6 @@ const register = async (req, res) => {
     }
 };
 
-// Iniciar sesión
 const login = async (req, res) => {
     const { email, password } = req.body;
     try {
@@ -31,7 +29,7 @@ const login = async (req, res) => {
         if (!validPassword) {
             return res.status(400).send('Contraseña incorrecta');
         }
-        const token = jwt.sign({ id: user.id }, 'tu_secreto_jwt', { expiresIn: '1h' });
+        const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
         res.json({ token });
     } catch (err) {
         console.error(err);

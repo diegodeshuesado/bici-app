@@ -11,10 +11,17 @@
     "author": "Diego Gutiérrez Hernández",
     "license": "MIT",
     "dependencies": {
+        "@emotion/react": "^11.14.0",
+        "@emotion/styled": "^11.14.0",
+        "@mui/material": "^6.4.4",
+        "bcrypt": "^5.1.1",
+        "chart.js": "^4.4.7",
         "dotenv": "^16.4.7",
         "express": "^4.21.2",
+        "express-validator": "^7.2.1",
+        "jsonwebtoken": "^9.0.2",
         "pg": "^8.7.1",
-        "react-scripts": "^5.0.1",
+        "react-scripts": "^3.0.1",
         "socket.io": "^4.4.1"
     },
     "devDependencies": {

@@ -8,6 +8,8 @@ import Navbar from './components/Navbar'; // Componente Navbar
 import HeroSection from './components/HeroSection'; // Componente HeroSection
 import FeatureSection from './components/FeatureSection'; // Componente FeatureSection
 import Footer from './components/Footer'; // Componente Footer
+import MyComponent from './components/MyComponent'; // Importar MyComponent
+import SensorChart from './components/SensorChart'; // Importar SensorChart
 
 const App = () => {
     return (
@@ -19,6 +21,8 @@ const App = () => {
                         <>
                             <HeroSection />
                             <FeatureSection />
+                            <MyComponent /> {/* Incluir MyComponent en la página de inicio */}
+                            <SensorChart /> {/* Incluir SensorChart en la página de inicio */}
                         </>
                     } />
                     <Route path="/sensores" element={<SensorData />} />
