@@ -11,6 +11,7 @@
     "author": "Diego Gutiérrez Hernández",
     "license": "MIT",
     "dependencies": {
+        "dotenv": "^16.4.7",
         "express": "^4.21.2",
         "pg": "^8.7.1",
         "react-scripts": "^5.0.1",
