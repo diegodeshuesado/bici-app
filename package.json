@@ -1,0 +1,22 @@
+{
+    "name": "bicicletas-inteligentes",
+    "version": "1.0.0",
+    "description": "Aplicación para la gestión de bicicletas inteligentes",
+    "main": "backend/server.js",
+    "scripts": {
+        "start": "node backend/server.js",
+        "client": "cd frontend && npm start",
+        "dev": "concurrently \"npm run start\" \"npm run client\""
+    },
+    "author": "Diego Gutiérrez Hernández",
+    "license": "MIT",
+    "dependencies": {
+        "express": "^4.21.2",
+        "pg": "^8.7.1",
+        "react-scripts": "^5.0.1",
+        "socket.io": "^4.4.1"
+    },
+    "devDependencies": {
+        "concurrently": "^6.2.1"
+    }
+}

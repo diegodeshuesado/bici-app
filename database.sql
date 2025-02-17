@@ -1,0 +1,21 @@
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  username VARCHAR(50) NOT NULL,
+  email VARCHAR(100) UNIQUE NOT NULL,
+  password VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE bikes (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  status VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE sensor_data (
+  id SERIAL PRIMARY KEY,
+  bike_id INT REFERENCES bikes(id),
+  speed FLOAT,
+  distance FLOAT,
+  battery_level FLOAT,
+  timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
